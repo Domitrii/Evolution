@@ -1,0 +1,119 @@
+.NavBar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    // background-color: rgba(26,26,26,0);
+    padding: 18px 60px;
+    position: fixed;
+    z-index: 100;
+
+    .container{
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+
+        .logoCont a{
+            display: flex;
+            font-size: 26px;
+            gap: 12px;
+        }
+    }
+
+    .logoIcon{
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+    }
+
+    .options{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 560px;
+        display: flex;
+        flex-direction: column;
+
+        ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+
+            .search{
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+            }
+            
+            li {
+                position: relative;
+
+                .active::after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    content: "";
+                    background-color: white;
+                    width: 100%;
+                    height: 1px;
+                }
+
+                .hoverTrue:hover{
+                    // zoom: 1.2;
+                    border: 2px solid rgb(141, 140, 140);
+                    border-radius: 20px;
+                }
+
+                a{
+                    font-size: 18px;
+                    background: none;
+                    padding: 10px 10px;
+                    border: none;
+                    cursor: pointer;
+                }
+
+            }
+        }
+
+    }
+
+    .packAndSearch{
+        display: flex;
+        list-style-type: none;
+        align-items: center;
+        gap: 30px;
+
+        .basket{
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+        }
+
+        .accountIcon{
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+    }
+
+    .headerBookMark{
+        position: absolute;
+        width: 600px;
+        height: 76px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgb(97, 97, 97);
+        border-radius: 0% 0% 40px 40px;
+        transition: background-color 1s;
+    }
+}
+
+a{
+    color: white;
+    text-decoration: none
+}
