@@ -1,0 +1,85 @@
+.container{
+    background-color: #080a0c;
+    padding: 0 120px;
+    .aboutSec{
+        padding: 120px 0;
+        font-family: "Orbitron", sans-serif;
+        
+        .subTitle{
+            color: var(--logo-color);
+            letter-spacing: 0.3em;
+            font-size: 12px;
+        }
+
+        .title{
+            font-size: 3.75rem;
+            line-height: 1;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .titleText {
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.625;
+            letter-spacing: 0.1em;
+            font-size: 14px;
+            width: 900px;
+        }
+
+        .aboutList{
+            list-style-type: none;
+            display: flex;
+            gap: 28px;
+            padding: 60px 0;
+
+            .aboutItem{
+                background: var(--block-back-color);
+                padding: 24px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                border-radius: 12px;
+                border: 0.1px solid rgba(255, 255, 255, 0.1);
+
+                svg{
+                    fill: var(--logo-color);
+                    width: 32px;
+                    height: 32px;
+                }
+
+                h3{
+                    color: #fff;
+                    font-size: 14px;
+                }
+
+                p{
+                    font-size: 10px;
+                    display: flex;
+                    text-align: center;
+                }
+            }
+        }
+        .mission{
+            display: flex;
+            flex-direction: column;
+            background: var(--block-back-color);
+            padding: 48px;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            border-radius: 28px;
+            border: 0.1px solid rgba(255, 255, 255, 0.1);
+
+            h2{
+                color: #fff;
+            }
+
+            p{
+                width: 760px;
+                text-align: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+.loader {
+    width: 80px;
+    height: 80px;
+    margin: 40px auto;
+    display: block;
+    animation-name: spin;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+
+    :global(.CircularProgressbar-path) {
+        stroke: var(--logo-color);
+    }
+    :global(.CircularProgressbar-trail) {
+        stroke: #333;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.container{
+    background: #111823;
+    padding: 0 120px;
+
+    .gamesSec{
+        padding: 120px 0;
+
+        .gameList{
+            display: flex;
+            list-style-type: none;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            background-color: #080a0c;
+            padding: 40px 20px;
+            border-radius: 20px;
+
+            .gameListItem{
+                background: var(--block-back-color);
+                padding: 24px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+                border-radius: 12px;
+                border: 0.1px solid rgba(255, 255, 255, 0.1);
+
+                .gameItemInfo{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .gameItemTitle{
+                        // color: hsl(190, 100%, 50%);
+                        color: white;
+                    }
+
+                    .gameItemPrice{
+                        color: var(--logo-color);
+                    }
+                }
+            }
+        }
+    }
+}

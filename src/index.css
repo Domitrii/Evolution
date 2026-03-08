@@ -15,7 +15,8 @@
 
   --logo-color: rgb(61, 255, 61);
   --text-color: #818898;
-  --header-color: linear-gradient(90deg, hsl(120, 100%, 62%), hsl(190 100% 50%))
+  --header-color: linear-gradient(90deg, hsl(120, 100%, 62%), hsl(190 100% 50%));
+  --block-back-color: linear-gradient(145deg, hsl(220 18% 10%) 0%, hsl(220 18% 6%) 100%)
 }
 
 *{

@@ -1,8 +1,13 @@
+import Community from "../../components/Community/Community"
+import Footer from "../../components/Footer/Footer"
 
 
 function CommunityPage() {
   return (
-    <div>CommunityPage</div>
+    <div>
+      <Community />
+      <Footer />
+    </div>
   )
 }
 

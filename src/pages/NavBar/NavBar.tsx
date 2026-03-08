@@ -32,7 +32,7 @@ function NavBar() {
                 <ul>
                     <li><NavLink to="/" className={({isActive}) => isActive ? s.active : s.hoverTrue }>Home</NavLink></li>
                     <li><NavLink to="/games" className={({isActive}) => isActive ? s.active : s.hoverTrue }>Games</NavLink></li>
-                    <li><NavLink to="/products" className={({isActive}) => isActive ? s.active : s.hoverTrue }>Hardware</NavLink></li>
+                    <li><NavLink to="/hardware" className={({isActive}) => isActive ? s.active : s.hoverTrue }>Hardware</NavLink></li>
                     <li><NavLink to="/community" className={({isActive}) => isActive ? s.active : s.hoverTrue }>Community</NavLink></li>
                     <li><NavLink to="/about" className={({isActive}) => isActive ? s.active : s.hoverTrue }>About</NavLink></li>
                     {/* <li><FaSearch className={s.search} /></li> */}

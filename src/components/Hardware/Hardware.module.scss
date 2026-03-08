@@ -1,0 +1,104 @@
+.container {
+    background-color: #0d1118;
+    padding: 0 30px;
+
+    .hardwareSec{
+        font-family: "Orbitron", sans-serif;
+        padding: 120px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .gearUp {
+            display: block;
+            font-size: 14px;
+            color: #194476;
+            width: fit-content; 
+            font-weight: 600;
+        }
+
+        .title {
+            font-size: 58px;
+            color: white;
+        }
+
+        .hardwareList {
+            display: flex;
+            padding: 0;
+            margin: 0 auto;
+            list-style: none;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+
+            li {
+                display: flex;
+                border: .1px solid rgb(255, 255, 255, 0.1);
+                flex-direction: column;
+
+                img{
+                    width: 386px;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+
+                .hardwareInfo {
+                    
+                    padding: 30px 20px;
+                    
+                    .infoT{
+                        font-size: 8px;
+                        line-height: 1rem;
+                        font-weight: 700;
+                        letter-spacing: 0.05em;
+                        text-transform: uppercase;
+                        color: hsl(190 100% 50%);
+                    }
+
+                    .hardwareItemName{
+                        color: white;
+                        letter-spacing: 0.025em;
+                        font-weight: 700;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .hardwarePrice {
+                        display: flex;
+                        justify-content: space-between;
+                        p{
+                            color: hsl(190 100% 50%);
+                        }
+                        
+                        button {
+                            margin-right: 20px;
+                            color: hsl(190 100% 50%);
+                            letter-spacing: 0.05em;
+                            font-weight: 700;
+                            font-size: 0.75rem;
+                            padding: 0.5rem 1rem;
+                            border: 1px solid hsl(190 100% 50% / .3);
+                            border-radius: 4px;
+                            background: none;
+                            cursor: pointer;
+                        }
+
+                        button:hover{
+                            background-color: hsl(190 100% 50% / .3);
+                        }
+
+                    }
+
+                }
+            }
+            li:hover{
+                box-shadow: 0 0 20px 0 #2266b3;
+
+                img{
+                    size: 1.2;
+                }
+            }
+        }
+    }
+}

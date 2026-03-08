@@ -3,7 +3,7 @@ import { lazy, Suspense } from 'react';
 import './App.css'
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"))
 const NavBar = lazy(() => import("./pages/NavBar/NavBar.tsx"))
-const ProductsPage = lazy(() => import("./pages/ProductsPage/ProductsPage.tsx"))
+const GamesPage = lazy(() => import("./pages/GamesPage/GamesPage.tsx"))
 const AboutPage = lazy(() => import("./pages/AboutPage/AboutPage.tsx"))
 const AccountPage = lazy(() => import("./pages/AccountPage/AccountPage.tsx"))
 const BasketPage = lazy(() => import("./pages/BasketPage/BasketPage.tsx"))
@@ -20,7 +20,7 @@ return (
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path="/game/:id" element={<GameOverView />} />
-          <Route path='/games' element={<ProductsPage />} />
+          <Route path='/games' element={<GamesPage />} />
           <Route path='/community' element={<CommunityPage />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/account' element={<AccountPage />} />
