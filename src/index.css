@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,10 +13,14 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 
+  --logo-color: rgb(61, 255, 61);
+  --text-color: #818898;
+  --header-color: linear-gradient(90deg, hsl(120, 100%, 62%), hsl(190 100% 50%))
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--text-color);
 }
