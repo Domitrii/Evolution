@@ -1,8 +1,11 @@
+import PageTitle from "../../helper/PageTitle"
 
 
 function BasketPage() {
   return (
-    <div>BasketPage</div>
+    <div>
+      <PageTitle>Basket</PageTitle>
+    </div>
   )
 }
 

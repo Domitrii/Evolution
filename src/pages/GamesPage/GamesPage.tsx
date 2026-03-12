@@ -1,12 +1,13 @@
 import Footer from "../../components/Footer/Footer"
 import Games from "../../components/Games/Games"
+import PageTitle from "../../helper/PageTitle"
 // import Header from "../../components/Header/Header"
 
 
 function GamesPage() {
   return (
     <div>
-      {/* <Header /> */}
+      <PageTitle>Games</PageTitle>
       <Games />
       <Footer />
     </div>

@@ -4,11 +4,12 @@ import s from "./NavBar.module.scss"
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
+import { useAuth } from "../../components/AuthContext/useAuth";
 
 function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isActive, setIsActive] = useState(true)
-
+    const { token } = useAuth();
     const scrollHandler = () => {
         if (window.scrollY >= 50) {
             setIsScrolled(true)
@@ -39,9 +40,9 @@ function NavBar() {
                 </ul>
             </div>
             <ul className={`${s.packAndSearch}`}>
-                <li><FaRegHeart className={s.heart} /></li>
-                <li><FaShoppingBasket className={s.basket} /></li>
-                <li><NavLink to=""><MdAccountCircle className={s.accountIcon}/></NavLink></li>
+                <li><NavLink to="/favorites"><FaRegHeart className={s.heart} /></NavLink></li>
+                <li><NavLink to="/basket"><FaShoppingBasket className={s.basket} /></NavLink></li>
+                <li><NavLink to={token ? "/account" : "/login"}><MdAccountCircle className={s.accountIcon}/></NavLink></li>
             </ul>
         </div>
     </div>

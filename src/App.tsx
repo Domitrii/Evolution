@@ -10,7 +10,11 @@ const BasketPage = lazy(() => import("./pages/BasketPage/BasketPage.tsx"))
 const CommunityPage = lazy(() => import("./pages/CommunityPage/CommunityPage.tsx"))
 const HardwarePage = lazy(() => import("./pages/HardwarePage/HarwarePage.tsx"))
 import { HelmetProvider } from 'react-helmet-async';
+const SignUp = lazy(() => import('./components/SignUp/SignUp.tsx'))
+const FavoritePage = lazy(() => import('./pages/FavoritePage/FavoritePage.tsx'));
 const GameOverView = lazy(() => import("./components/GamerOverView.tsx/GameOverView.tsx"));
+const PrivateRoute = lazy(() => import("./components/PrivateRoute.tsx"));
+const Login = lazy(() => import("./components/Login/Login.tsx"));
 
 const App = () => {
 return (
@@ -23,9 +27,12 @@ return (
           <Route path='/games' element={<GamesPage />} />
           <Route path='/community' element={<CommunityPage />} />
           <Route path='/about' element={<AboutPage />} />
-          <Route path='/account' element={<AccountPage />} />
+          <Route path='/account' element={<PrivateRoute><AccountPage /></PrivateRoute>} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/basket' element={<BasketPage />} />
           <Route path='/hardware' element={<HardwarePage />} />
+          <Route path='/favorites' element={<FavoritePage />} />
         </Routes>
       </HelmetProvider>
     </Suspense>
