@@ -31,13 +31,23 @@ export const getGames = async (): Promise<Game[]> => {
   }
 };
 
+export const getGameById = async (id:number) => {
+  try{
+    const {data} = await api.get<GamesResponse>(`/games/game/${id}`)
+    return data
+  } catch (error) {
+    console.error(error)
+    return undefined
+  }
+}
+
 export const addFavorite = async (gameId: number) => {
   try {
     const { data } = await api.post<Favorite>(`/games/favorites/${gameId}`);
     return data;
   } catch (error) {
     console.log(error);
-    console.error(error);
+    // console.error(error);
     return undefined;
   }
 };

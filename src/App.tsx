@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { lazy, Suspense } from 'react';
+import { Toaster } from 'react-hot-toast';
 import './App.css'
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"))
 const NavBar = lazy(() => import("./pages/NavBar/NavBar.tsx"))
@@ -19,6 +20,7 @@ const Login = lazy(() => import("./components/Login/Login.tsx"));
 const App = () => {
 return (
     <Suspense>
+      <Toaster />
       <HelmetProvider>
         <NavBar />
         <Routes>

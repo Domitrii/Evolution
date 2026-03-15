@@ -3,13 +3,83 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    border-radius: 10px;
+    padding: 20px 40px;
+    .itemBlock {
+        overflow: hidden;
+        display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: center;
+        gap: 20px;
 
-
-    // .itemBlock {
+        .titleBlock{
+            display: flex;
+            flex-direction: column;
         
-    // }
+            .title {
+                font-size: 24px;
+                font-weight: 600;
+                color: white;
+            }
+            img {
+                min-width: 700px;
+                object-fit: cover;
+                border-radius: 10px;
+            }       
+        }
+
+        .infoBlock{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        
+            div{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                
+                p{
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: white;
+                }
+                span{
+                    width: max-content;
+                    max-width: 300px;
+                    flex-wrap: wrap;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+        
+        }
+    }
+}
 
 
+.toastStyle{
+    display: flex;
+    position: absolute;
+    top: 10px;
+    background-color: rgba(255, 50, 50, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
 
+.toastSuccessStyle{
+    display: flex;
+    position: absolute;
+    top: 10px;
+    background-color: rgba(32, 255, 40, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
 }
