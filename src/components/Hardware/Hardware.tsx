@@ -14,7 +14,7 @@ function Hardware() {
                     <img src={mouse} alt="" />
                     <div className={s.hardwareInfo}>
                         <p className={s.infoT}>MICE</p>
-                        <p className={s.hardwareItemName}>Razer DeathAdder Essential</p>
+                        <p className={s.hardwareItemName}>Razer Basilisk V3 Pro Wireless Gaming Mouse | Black</p>
                         <div className={s.hardwarePrice}>
                             <p>$89.99</p>
                             <button>ADD TO CART</button>
@@ -25,7 +25,7 @@ function Hardware() {
                     <img src={setup} alt="" />
                     <div className={s.hardwareInfo}>
                         <p className={s.infoT}>Screen</p>
-                        <p className={s.hardwareItemName}>Razer DeathAdder Essential</p>
+                        <p className={s.hardwareItemName}>Dell 27 200Hz Monitor - SE2725HG</p>
                         <div className={s.hardwarePrice}>
                             <p>$189.99</p>
                             <button>ADD TO CART</button>
@@ -35,7 +35,7 @@ function Hardware() {
                 <li>
                     <img src={headphones} alt="" />
                     <div className={s.hardwareInfo}>
-                        <p className={s.infoT}>Screen</p>
+                        <p className={s.infoT}>HeadPhones</p>
                         <p className={s.hardwareItemName}>Razer DeathAdder Essential</p>
                         <div className={s.hardwarePrice}>
                             <p>$119.99</p>

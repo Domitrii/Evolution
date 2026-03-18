@@ -45,7 +45,8 @@
                 }
 
                 .hardwareInfo {
-                    
+                    max-width: 345px;
+                    text-wrap: wrap;
                     padding: 30px 20px;
                     
                     .infoT{

@@ -62,7 +62,7 @@ export const getFavorites = async (): Promise<Favorite[]> => {
   }
 };
 
-export const removeFavorite = async (id: string): Promise<void> => {
+export const removeFavorite = async (id: string | number): Promise<void> => {
   try {
     await api.delete(`/games/favorites/${id}`);
   } catch (error) {

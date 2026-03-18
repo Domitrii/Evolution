@@ -8,6 +8,7 @@ export interface Game {
     publisher: string;
     release_date: string;
     price: number;
+    isFavorite: boolean;
 }
 
 export interface RegisterRequest{
@@ -36,6 +37,6 @@ export interface LogInRequest{
 
 export interface Favorite {
   _id: object | string;
-  gameId: number;
+  gameId: number | Game;
   userId: string;
 }
