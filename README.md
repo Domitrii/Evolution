@@ -2,17 +2,18 @@ Evolution — Gaming E-Commerce Store
 
 A university assignment project built as part of the FdSc/BSc Computer Science programme at University College Birmingham.
 
-🌐 Live Demo: evolution-sepia.vercel.app
+## Live Demo: evolution-sepia.vercel.app
 
 <img width="1470" height="956" alt="Screenshot 2026-04-30 at 11 50 39" src="https://github.com/user-attachments/assets/3256e3d2-609e-4dc7-b6fb-b28984a01477" />
 
 
-📖 Project Overview
+## Project Overview
 Evolution is a gaming-oriented e-commerce web application developed as a web development coursework assignment. The goal of this project was to design and build a fully functional, responsive front-end for an online store specialising in video games across PC and console platforms, as well as hardware equipment and product reviews.
 The brief required demonstrating practical skills in modern web development — including component-based architecture, client-side routing, form handling, and responsive UI design — while producing a product that mirrors the functionality of real-world gaming retailers.
 The site was inspired by and critically compared against existing platforms such as Instant Gaming, examining how Evolution's design and features align with or differ from industry standards.
 
-**Purpose**
+## Purpose
+
 This project was built to:
 
 Apply front-end development skills in a realistic, project-based context
@@ -22,7 +23,7 @@ Practice responsive design principles across different screen sizes
 Deploy a production-ready application using modern tooling (Vite + Vercel)
 
 
-✨ Features
+## Features
 
 Game listings — Browse games available for various PC and console formats
 Hardware section — Equipment listings alongside game products
@@ -35,10 +36,12 @@ Client-side routing — Seamless page navigation with React Router DOM
 SEO meta management — Page titles and metadata handled with React Helmet Async
 
 
-🛠️ Tech Stack
+## Tech Stack
+
 CategoryTechnologyFrameworkReact 19LanguageTypeScript 5.9Build ToolVite 7StylingSCSS (Sass)RoutingReact Router DOM v7Forms & ValidationFormik + YupHTTP ClientAxiosNotificationsReact Hot ToastIconsReact IconsCarouselReact SlickProgress UIReact Circular ProgressbarSEOReact Helmet AsyncDeploymentVercel
 
-🚀 Running the Project Locally
+## Running the Project Locally
+
 Prerequisites
 
 Node.js v18 or higher
@@ -62,7 +65,8 @@ bashnpm run build      # Build for production
 npm run preview    # Preview the production build locally
 npm run lint       # Run ESLint checks
 
-📁 Project Structure
+## Project Structure
+
 Evolution/
 ├── public/          # Static assets (favicon, images)
 ├── src/             # All application source code
@@ -74,8 +78,8 @@ Evolution/
 ├── vercel.json      # Vercel SPA routing config
 └── package.json
 
-🌍 Deployment
+## Deployment
 The project is deployed on Vercel. A vercel.json configuration file is included to correctly handle client-side routing, ensuring direct URL access and page refreshes work as expected in a single-page application.
 
-🎓 Academic Context
+## Academic Context
 StudentDmitrii KopyrinInstitutionUniversity College BirminghamProgrammeFdSc/BSc Computer ScienceModuleWeb DevelopmentAcademic Year2024/25
