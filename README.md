@@ -38,7 +38,19 @@ SEO meta management — Page titles and metadata handled with React Helmet Async
 
 ## Tech Stack
 
-CategoryTechnologyFrameworkReact 19LanguageTypeScript 5.9Build ToolVite 7StylingSCSS (Sass)RoutingReact Router DOM v7Forms & ValidationFormik + YupHTTP ClientAxiosNotificationsReact Hot ToastIconsReact IconsCarouselReact SlickProgress UIReact Circular ProgressbarSEOReact Helmet AsyncDeploymentVercel
+Framework: React 19
+Language: TypeScript 5.9
+Build Tool: Vite 7 
+Styling: SCSS (Sass)
+Routing: React Router DOM v7
+Forms & Validation: Formik + Yup
+HTTP Client: Axios 
+Notifications: React Hot Toast
+Icons: React Icons
+Carousel: React Slick
+Progress UI: React Circular Progressbar
+SEO: React Helmet Async
+Deployment: Vercel
 
 ## Running the Project Locally
 
@@ -82,4 +94,8 @@ Evolution/
 The project is deployed on Vercel. A vercel.json configuration file is included to correctly handle client-side routing, ensuring direct URL access and page refreshes work as expected in a single-page application.
 
 ## Academic Context
-StudentDmitrii KopyrinInstitutionUniversity College BirminghamProgrammeFdSc/BSc Computer ScienceModuleWeb DevelopmentAcademic Year2024/25
+Student: Dmitrii Kopyrin
+Institution: University College Birmingham
+Programme: FdSc/BSc Computer Science
+Module: Web Development
+Academic Year: 2024/25
