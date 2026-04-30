@@ -77,19 +77,6 @@ bashnpm run build      # Build for production
 npm run preview    # Preview the production build locally
 npm run lint       # Run ESLint checks
 
-## Project Structure
-
-Evolution/
-├── public/          # Static assets (favicon, images)
-├── src/             # All application source code
-│   ├── components/  # Reusable UI components
-│   ├── pages/       # Page-level views
-│   └── assets/      # Images and media files
-├── index.html
-├── vite.config.ts
-├── vercel.json      # Vercel SPA routing config
-└── package.json
-
 ## Deployment
 The project is deployed on Vercel. A vercel.json configuration file is included to correctly handle client-side routing, ensuring direct URL access and page refreshes work as expected in a single-page application.
 
