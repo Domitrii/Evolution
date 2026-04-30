@@ -39,7 +39,7 @@ SEO meta management — Page titles and metadata handled with React Helmet Async
 ## Tech Stack
 
 - Framework: React 19
-Language: TypeScript 5.9
+- Language: TypeScript 5.9
 Build Tool: Vite 7 
 Styling: SCSS (Sass)
 Routing: React Router DOM v7
