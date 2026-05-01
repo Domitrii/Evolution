@@ -40,3 +40,16 @@ export interface Favorite {
   gameId: number | Game;
   userId: string;
 }
+
+export interface BasketItem {
+  game: Game
+}
+
+export interface Basket {
+  games: Game[];
+  userId: string;
+}
+
+// export interface PurchaseResponse {
+//   game: 
+// }

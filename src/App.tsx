@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import './App.css'
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"))
@@ -18,6 +18,21 @@ const PrivateRoute = lazy(() => import("./components/PrivateRoute.tsx"));
 const Login = lazy(() => import("./components/Login/Login.tsx"));
 
 const App = () => {
+const [isIdStore, setIsIdStore] = useState<string[]>(() => {
+  const stored = localStorage.getItem("id");
+  return stored ? JSON.parse(stored) : [];
+});
+
+const addItemToBasket = (id: string) => {
+  setIsIdStore(prev => 
+    prev.includes(id) ? prev : [...prev, id]
+  );
+};
+
+useEffect(() => {
+  localStorage.setItem("id", JSON.stringify(isIdStore));
+}, [isIdStore]);
+
 return (
     <Suspense>
       <Toaster />
@@ -25,8 +40,8 @@ return (
         <NavBar />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path="/game/:id" element={<GameOverView />} />
-          <Route path='/games' element={<GamesPage />} />
+          <Route path="/game/:id" element={<GameOverView addItemToBasket={addItemToBasket} />} />
+          <Route path='/games' element={<GamesPage addItemToBasket={addItemToBasket} />} />
           <Route path='/community' element={<CommunityPage />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/account' element={<PrivateRoute><AccountPage /></PrivateRoute>} />

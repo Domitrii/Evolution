@@ -1,5 +1,5 @@
 import { api } from "../config/api";
-import type { Favorite, Game } from "../types/api";
+import type { BasketItem, Favorite, Game, Basket } from "../types/api";
 
 type GamesResponse = Game[] | { games: Game[] };
 
@@ -68,5 +68,14 @@ export const removeFavorite = async (id: string | number): Promise<void> => {
   } catch (error) {
     console.error(error);
     return undefined;
+  }
+}
+
+export const purchaseBasket = async (userId: string, games: BasketItem[]): Promise<Basket> => {
+  try {
+    const {data} = await api.post<Basket>(`/basket`, {userId, games})
+    return data
+  } catch (error) {
+    throw new Error(`Failed to purchase basket: ${error instanceof Error ? error.message : String(error)}`)
   }
 }

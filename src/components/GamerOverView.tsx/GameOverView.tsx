@@ -1,34 +1,48 @@
 import { useLocation } from "react-router-dom";
 import s from "./GameOverView.module.scss"
-import { addFavorite } from "../../api/games";
+import { addFavorite, removeFavorite } from "../../api/games";
 import { FaRegHeart } from "react-icons/fa";
+import { BsBasket2Fill } from "react-icons/bs";
 import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 
-function GameOverView() {
+function GameOverView({addItemToBasket}: {addItemToBasket: (id:string)=>void}) {
   const { state } = useLocation();
   const game = state?.game;
+  const [isFav, setIsFav] = useState(false)
+  
 
+  useEffect(() => {
+    const run = async () => {
+      await setIsFav(game.isFavorite)
+    }
+    run()
+  }, [])
 
   const onFavClick = async (id:number) => {
-    const data = await addFavorite(id)
-    if(!data){
-      toast.custom(<div className={s.toastStyle}>
-        Failed to add favorite
-        </div>, {duration: 1300})
-
+    if(game.isFavorite){
+      try{
+        await removeFavorite(id)
+        setIsFav(false)
+        toast.custom(<div className={s.toastStyle}>Deleted from favorites</div>, {duration: 1300})
+      } catch (error) {
+        console.error(error)
+      }
     } else {
-      toast.custom(<div className={s.toastSuccessStyle}>
-        Favorite added
-        </div>, {duration: 1300})
+      try{
+        await addFavorite(id)
+        setIsFav(true)
+        toast.custom(<div className={s.toastStyle}>Failed to remove favorite</div>, {duration: 1300})
+      } catch (error) {
+        console.error(error)
+      }
     }
-    return data
 }   
 
   return (
     <div className={s.container}>
       <div className={s.itemBlock}>
-
         <div className={s.titleBlock}>
           <span className={s.title}>{game.title}</span>
           <img src={game.thumbnail} alt="" />
@@ -59,15 +73,11 @@ function GameOverView() {
             <p>Price:</p>
             <span>{game.price}</span>
           </div>
-          <FaRegHeart className={s.heart} onClick={() => onFavClick(game._id)} />
+          <div className={s.interact}>
+            <FaRegHeart className={`${s.heart} ${isFav ? s.favorite : ""}`} onClick={() => onFavClick(game._id) } />
+            <BsBasket2Fill className={s.basket} onClick={() => addItemToBasket(game._id)} />
+          </div>
         </div>
-        {/* <div>Title: {game.title}</div>
-        <div>Publisher: {game.publisher}</div>
-        <div>Description: {game.description}</div>
-        <div>Genre: {game.genre}</div>
-        <div>Platform: {game.platform}</div>
-        <div>Release Date: {game.release_data}</div>
-        <div>Price: {game.price}</div> */}
       </div>
     </div>
   )

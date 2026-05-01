@@ -75,7 +75,7 @@ function Games() {
                 {isGames.map((i,index) => (
                     <div key={`${i._id}-${index}`} className={s.gameListItem}>
                     <NavLink
-                        to={`/game/${i._id}`}
+                    to={`/game/${i._id}`}
                         state={{game: i}}
                         key={`${i._id}-${index}`} 
                         className={s.gameItemLink}
@@ -86,8 +86,8 @@ function Games() {
                             <div className={s.gameItemTitle}>{i.title}</div>
                             <div>{i.platform}</div>
                             <FaRegHeart
-                            className={`${s.heart} ${i.isFavorite ? s.activeHeart : ""}`}
-                            onClick={() => onFavClick(i._id, i.isFavorite)}
+                                className={`${s.heart} ${i.isFavorite ? s.activeHeart : ""}`}
+                                onClick={() => onFavClick(i._id, i.isFavorite)}
                             />
                             <div className={s.gameItemPrice}>{i.price}</div>
                         </div>
