@@ -71,7 +71,7 @@ const fetchPayBtn = () => {
             <button className={s.btn} onClick={fetchPayBtn}>Pay</button>
           </div>
         </div>
-        {/* {isPay ? <PurchaseWindow setIsPay={setIsPay} /> : ""} */}
+        {isPay ? <PurchaseWindow setIsPay={setIsPay} /> : ""}
     </div>
   )
 }
