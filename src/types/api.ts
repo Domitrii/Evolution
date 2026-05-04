@@ -1,5 +1,5 @@
 export interface Game {
-    _id: number;
+    _id: string;
     title: string;
     thumbnail: string;
     short_description: string;
@@ -42,7 +42,7 @@ export interface Favorite {
 }
 
 export interface BasketItem {
-  game: Game
+  id: string
 }
 
 export interface Basket {
