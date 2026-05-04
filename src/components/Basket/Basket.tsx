@@ -10,7 +10,6 @@ function Basket({ allIds, removeItemFromBasket }: {
   removeItemFromBasket: (id: string) => void
 }) {
   const [isIdsItem, setIsIdsItem] = useState<Game[]>([])
-  // const [isSum, setIsSum] = useState(0)
   const [isPay, setIsPay] = useState(false)
 
   useEffect(() => {
@@ -25,14 +24,6 @@ function Basket({ allIds, removeItemFromBasket }: {
   }
   fetchPurchase()
 }, [allIds])
-
-// useEffect(() => {
-//   setIsSum(0)
-//   isIdsItem.map(i => {
-//         setIsSum(prev => prev += i.price)
-//       })
-// }, [isIdsItem])
-
 
 const isSum = isIdsItem.reduce((acc, i) => acc + i.price, 0)
 
