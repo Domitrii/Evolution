@@ -27,6 +27,7 @@ function Basket() {
                 </li>
             ))}
         </div>
+        {/* {isPay ? <PurchaseWindow setIsPay={setIsPay} /> : ""} */}
     </div>
   )
 }
