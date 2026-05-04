@@ -7,10 +7,15 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 
 
-function GameOverView({addItemToBasket}: {addItemToBasket: (id:string)=>void}) {
+function GameOverView({addItemToBasket, removeItemFromBasket, isIdStore}: {
+  addItemToBasket: (id:string)=>void
+  removeItemFromBasket: (id: string) => void
+  isIdStore: []
+}) {
   const { state } = useLocation();
   const game = state?.game;
   const [isFav, setIsFav] = useState(false)
+  const [isIncluded, setIsIncluded] = useState(false)
   
 
   useEffect(() => {
@@ -19,6 +24,27 @@ function GameOverView({addItemToBasket}: {addItemToBasket: (id:string)=>void}) {
     }
     run()
   }, [])
+
+  useEffect(() => {
+    isIdStore.filter(g => {
+        if(g.id == game._id){
+          console.log(`here: ${g.id} and ${game._id}`)
+          setIsIncluded(true)
+        } else {
+          setIsIncluded(false)
+        }
+      })
+  }, [isIdStore])
+
+  const fetchAddRemove = (id: string) => {
+    if(isIncluded) {
+      console.log("here")
+      removeItemFromBasket(id)
+    } else {
+      console.log("not here")
+      addItemToBasket(id)
+    }
+  }
 
   const onFavClick = async (id:number) => {
     if(game.isFavorite){
@@ -39,6 +65,7 @@ function GameOverView({addItemToBasket}: {addItemToBasket: (id:string)=>void}) {
       }
     }
 }   
+
 
   return (
     <div className={s.container}>
@@ -75,7 +102,7 @@ function GameOverView({addItemToBasket}: {addItemToBasket: (id:string)=>void}) {
           </div>
           <div className={s.interact}>
             <FaRegHeart className={`${s.heart} ${isFav ? s.favorite : ""}`} onClick={() => onFavClick(game._id) } />
-            <BsBasket2Fill className={s.basket} onClick={() => addItemToBasket(game._id)} />
+            <BsBasket2Fill className={`${s.basket} ${isIncluded ? s.included : s.notIncluded}`} onClick={() => fetchAddRemove(game._id)} />
           </div>
         </div>
       </div>

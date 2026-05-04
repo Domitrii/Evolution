@@ -1,0 +1,160 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.purchasePage {
+    font-size: 22px;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.leftSec {
+  display: flex;
+  padding-top: 110px;
+  width: 100%;
+  overflow-y: auto; 
+  height: 100%; 
+}
+
+.purchaseSection {
+    display: flex;
+    padding: 0 40px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    .purchaseItem{
+        background: var(--block-back-color);
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 32px;
+        border-radius: 12px;
+        border: 0.1px solid rgba(255, 255, 255, 0.1);
+        height: max-content;
+
+        img{
+            width: 430px;
+        }
+
+        .itemInfo{
+            display: flex;
+            justify-content: space-between;
+            display: flex;
+            padding: 20px 24px;
+            
+            div{
+                color: white;
+            }
+
+            .deleteBtn{
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
+            }
+
+            .deleteBtn:hover {
+                fill: white;
+            }
+
+            .deleteBtn:active {
+                fill: red;
+            }
+        }
+    }
+}
+
+.purchaseRightSec {
+  width: 500px;
+  padding: 70px 20px;
+  min-height: 100vh;
+  background-color: rgb(18, 18, 18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo{
+    font-family: "Audiowide", sans-serif;
+    padding-top: 30px;
+    font-size: 32px;
+    color: var(--logo-color);
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 40px;
+  }
+
+  .buyScroll{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    overflow: scroll;
+    width: 100%;
+    gap: 20px;
+    padding: 0 20px;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 20px;
+        border: 1px solid #fff;
+        border-radius: 16px;
+        width: 100%;
+        align-items: center;
+
+        div{
+            display: flex;
+            gap: 30px;
+            color: #fff;
+            
+
+            .deleteBtn{
+                width: 28px;
+                height: 28px;
+                cursor: pointer;
+            }
+
+            .deleteBtn:hover {
+                fill: white;
+            }
+
+            .deleteBtn:active {
+                fill: red;
+            }
+        }
+    }
+  }
+
+  .buyAllow{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    
+    div{
+        font-size: 24px;
+        color: white;
+    }
+
+    .btn{
+        box-shadow: 0px 0px 20px 0px var(--logo-color);
+        background-color: transparent;
+        border: 1px solid var(--logo-color);
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+        width: 240px;
+    }
+
+    .btn:hover {
+        background-color: var(--logo-color);
+        box-shadow: 0px 0px 20px 0px var(white);
+        color: black;
+    }
+  }
+}

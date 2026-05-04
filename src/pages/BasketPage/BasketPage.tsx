@@ -2,11 +2,14 @@ import Basket from "../../components/Basket/Basket"
 import PageTitle from "../../helper/PageTitle"
 
 
-function BasketPage() {
+function BasketPage({ allIds, removeItemFromBasket}: { 
+  allIds: string[]
+  removeItemFromBasket: (id: string) => void
+}) {
   return (
     <div>
       <PageTitle>Basket</PageTitle>
-      <Basket />
+      <Basket allIds={allIds} removeItemFromBasket={removeItemFromBasket} />
     </div>
   )
 }

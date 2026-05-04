@@ -33,7 +33,7 @@ export const getGames = async (): Promise<Game[]> => {
 
 export const getGameById = async (id:number) => {
   try{
-    const {data} = await api.get<GamesResponse>(`/games/game/${id}`)
+    const {data} = await api.get<GamesResponse>(`/games/${id}`)
     return data
   } catch (error) {
     console.error(error)
