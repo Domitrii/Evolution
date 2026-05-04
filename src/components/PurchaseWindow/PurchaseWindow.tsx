@@ -4,7 +4,7 @@ function PurchaseWindow({setIsPay}: {setIsPay: (value: boolean)=> void}) {
   return (
     <div className={s.purchaseWindow} onClick={() => setIsPay(false)}>
         <div className={s.purchaseSec}>
-
+            
         </div>
     </div>
   )
