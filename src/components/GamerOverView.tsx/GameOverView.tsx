@@ -5,12 +5,13 @@ import { FaRegHeart } from "react-icons/fa";
 import { BsBasket2Fill } from "react-icons/bs";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
+import type { BasketItem } from "../../types/api";
 
 
 function GameOverView({addItemToBasket, removeItemFromBasket, isIdStore}: {
   addItemToBasket: (id:string)=>void
   removeItemFromBasket: (id: string) => void
-  isIdStore: []
+  isIdStore: BasketItem[]
 }) {
   const { state } = useLocation();
   const game = state?.game;
@@ -28,7 +29,6 @@ function GameOverView({addItemToBasket, removeItemFromBasket, isIdStore}: {
   useEffect(() => {
     isIdStore.filter(g => {
         if(g.id == game._id){
-          console.log(`here: ${g.id} and ${game._id}`)
           setIsIncluded(true)
         } else {
           setIsIncluded(false)
