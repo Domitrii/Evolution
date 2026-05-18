@@ -1,11 +1,12 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import s from "./Login.module.scss";
 import * as Yup from "yup";
-import { requestLogin } from "../../api/client";
 import type { LogInRequest } from "../../types/api";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../AuthContext/useAuth";
 import PageTitle from "../../helper/PageTitle";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../../redux/store";
+import { apiLogin } from "../../redux/auth/authThunc";
 
 
 const UserSignUpSchema = Yup.object().shape({
@@ -14,26 +15,19 @@ const UserSignUpSchema = Yup.object().shape({
 })
 
 function Login() {
-
     const navigate = useNavigate();
-    const { setAuth } = useAuth();
-    
-    const onLogin = async (formData:LogInRequest) => {
-        const data = await requestLogin(formData);
-        console.log(data)
-        if(data) {
-            setAuth(data);
-            navigate("/account")
-        }
-    }
+    const dispatch = useDispatch<AppDispatch>()
 
     const INITIAL_FORM_DATA = {
         email: "",
         password: ""
     }
 
-    const handleSubmit = (data:LogInRequest, {resetForm}:{resetForm:() => void}):void => {
-        onLogin(data)
+    const handleSubmit = async (data:LogInRequest, {resetForm}:{resetForm:() => void}) => {
+        const result = await dispatch(apiLogin(data))
+        if (apiLogin.fulfilled.match(result)){
+            navigate("/account")
+        }
         resetForm()
     }
 
