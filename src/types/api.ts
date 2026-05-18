@@ -31,13 +31,13 @@ export interface RegisterResponse {
 }
 
 export interface LogInRequest{
-    email: string,
-    password: string
+  email: string,
+  password: string
 }
 
 export interface Favorite {
-  _id: object | string;
-  gameId: number | Game;
+  _id: string;
+  gameId: Game;
   userId: string;
 }
 

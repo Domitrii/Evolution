@@ -4,14 +4,22 @@ import { MdOutlineDelete } from "react-icons/md";
 import s from "./Basket.module.scss"
 import type { Game } from "../../types/api";
 import PurchaseWindow from "../PurchaseWindow/PurchaseWindow";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch } from "../../redux/store";
+import { selectBasketIds } from "../../redux/basket/selectors";
+import { removeItem } from "../../redux/basket/basketSlice";
 
-function Basket({ allIds, removeItemFromBasket }: { 
-  allIds: string[] 
-  removeItemFromBasket: (id: string) => void
-}) {
+function Basket() {
   const [isIdsItem, setIsIdsItem] = useState<Game[]>([])
   const [isSum, setIsSum] = useState(0)
   const [isPay, setIsPay] = useState(false)
+  const dispatch = useDispatch<AppDispatch>()
+  const allIds = useSelector(selectBasketIds)
+
+
+  const handleRemove = (id: string) => {
+    dispatch(removeItem(id))
+  }
 
   useEffect(() => {
   const fetchPurchase = async () => {
@@ -47,7 +55,7 @@ const fetchPayBtn = () => {
                     <div className={s.itemInfo}>
                       <div>{i.title}</div>
                       <div>{i.price}</div>
-                      <MdOutlineDelete className={s.deleteBtn} onClick={() => removeItemFromBasket(i._id)} />
+                      <MdOutlineDelete className={s.deleteBtn} onClick={() => handleRemove(i._id)} />
                     </div>
                 </li>
             ))}
@@ -61,7 +69,7 @@ const fetchPayBtn = () => {
                 <div>{i.title}</div>
                 <div>
                   <div>{i.price}</div>
-                  <MdOutlineDelete className={s.deleteBtn} onClick={() => removeItemFromBasket(i._id)} />
+                  <MdOutlineDelete className={s.deleteBtn} onClick={() => handleRemove(i._id)} />
                 </div>
               </li>
           ))}

@@ -4,68 +4,46 @@ import { addFavorite, removeFavorite } from "../../api/games";
 import { FaRegHeart } from "react-icons/fa";
 import { BsBasket2Fill } from "react-icons/bs";
 import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch } from "../../redux/store";
+import { selectIsInBasket } from "../../redux/basket/selectors";
+import { addItem, removeItem } from "../../redux/basket/basketSlice";
 
-
-function GameOverView({addItemToBasket, removeItemFromBasket, isIdStore}: {
-  addItemToBasket: (id:string)=>void
-  removeItemFromBasket: (id: string) => void
-  isIdStore: []
-}) {
+function GameOverView() {
   const { state } = useLocation();
   const game = state?.game;
-  const [isFav, setIsFav] = useState(false)
-  const [isIncluded, setIsIncluded] = useState(false)
-  
-
-  useEffect(() => {
-    const run = async () => {
-      await setIsFav(game.isFavorite)
-    }
-    run()
-  }, [])
-
-  useEffect(() => {
-    isIdStore.filter(g => {
-        if(g.id == game._id){
-          console.log(`here: ${g.id} and ${game._id}`)
-          setIsIncluded(true)
-        } else {
-          setIsIncluded(false)
-        }
-      })
-  }, [isIdStore])
+  const [isFav, setIsFav] = useState(game.isFavorite)
+  const dispatch = useDispatch<AppDispatch>()
+  const isIncluded = useSelector(selectIsInBasket(game._id)) 
 
   const fetchAddRemove = (id: string) => {
-    if(isIncluded) {
-      console.log("here")
-      removeItemFromBasket(id)
+    if (isIncluded) {
+      dispatch(removeItem(id))
     } else {
-      console.log("not here")
-      addItemToBasket(id)
+      dispatch(addItem(id))
     }
   }
 
-  const onFavClick = async (id:number) => {
-    if(game.isFavorite){
-      try{
+  const onFavClick = async (id: number) => {
+    if (isFav) {
+      try {
         await removeFavorite(id)
         setIsFav(false)
-        toast.custom(<div className={s.toastStyle}>Deleted from favorites</div>, {duration: 1300})
+        toast.custom(<div className={s.toastStyle}>Deleted from favorites</div>, { duration: 1300 })
       } catch (error) {
         console.error(error)
       }
     } else {
-      try{
+      try {
         await addFavorite(id)
         setIsFav(true)
-        toast.custom(<div className={s.toastStyle}>Failed to remove favorite</div>, {duration: 1300})
+        toast.custom(<div className={s.toastStyle}>Added to favorites</div>, { duration: 1300 })
       } catch (error) {
         console.error(error)
       }
     }
-}   
-
+  }
 
   return (
     <div className={s.container}>
@@ -75,34 +53,27 @@ function GameOverView({addItemToBasket, removeItemFromBasket, isIdStore}: {
           <img src={game.thumbnail} alt="" />
         </div>
         <div className={s.infoBlock}>
-          <div>
-            <p>Publisher:</p>
-            <span>{game.publisher}</span>
-          </div>
+          <div><p>Publisher:</p><span>{game.publisher}</span></div>
           <div>
             <p>Description:</p>
-            {game.description && <span>{game.description}</span>}
-            {!game.description && <span>No description available</span>}
+            {game.description
+              ? <span>{game.description}</span>
+              : <span>No description available</span>
+            }
           </div>
-          <div>
-            <p>Genre:</p>
-            <span>{game.genre}</span>
-          </div>
-          <div>
-            <p>Platform:</p>
-            <span>{game.platform}</span>
-          </div>
-          <div>
-            <p>Release Date:</p>
-            <span>{game.release_data}</span>
-          </div>
-          <div>
-            <p>Price:</p>
-            <span>{game.price}</span>
-          </div>
+          <div><p>Genre:</p><span>{game.genre}</span></div>
+          <div><p>Platform:</p><span>{game.platform}</span></div>
+          <div><p>Release Date:</p><span>{game.release_data}</span></div>
+          <div><p>Price:</p><span>{game.price}</span></div>
           <div className={s.interact}>
-            <FaRegHeart className={`${s.heart} ${isFav ? s.favorite : ""}`} onClick={() => onFavClick(game._id) } />
-            <BsBasket2Fill className={`${s.basket} ${isIncluded ? s.included : s.notIncluded}`} onClick={() => fetchAddRemove(game._id)} />
+            <FaRegHeart
+              className={`${s.heart} ${isFav ? s.favorite : ""}`}
+              onClick={() => onFavClick(game._id)}
+            />
+            <BsBasket2Fill
+              className={`${s.basket} ${isIncluded ? s.included : s.notIncluded}`}
+              onClick={() => fetchAddRemove(game._id)}
+            />
           </div>
         </div>
       </div>

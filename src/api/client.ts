@@ -59,14 +59,20 @@ export const requestSignUp = async (
 
 export const requestLogin = async (
   formData: LogInRequest
-): Promise<RegisterResponse | undefined> => {
-  try {
+): Promise<RegisterResponse> => {
     const { data } = await api.post<RegisterResponse>("/users/login", formData);
+    // console.log(data)
     setToken(data.token);
     saveAuthToStorage(data);
     console.log(api.defaults.headers)
     return data;
-  } catch (error) {
-    console.error(error);
-  }
 };
+
+export const requestLogout = async () => {
+  // console.log("Logout")
+  const {data} = await api.post("users/logout")
+  removeToken()
+  // localStorage.removeItem("basket")
+  console.log(data)
+  return data
+}
